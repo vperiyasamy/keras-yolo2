@@ -305,8 +305,8 @@ class YOLO(object):
         ############################################
 
         early_stop = EarlyStopping(monitor='val_loss', 
-                           min_delta=0.001, 
-                           patience=3, 
+                           min_delta=0.0001, 
+                           patience=5, 
                            mode='min', 
                            verbose=1)
         checkpoint = ModelCheckpoint(saved_weights_name, 
@@ -402,6 +402,8 @@ class YOLO(object):
         # compute mAP by comparing all detections and all annotations
         average_precisions = {}
         
+        mean_IOU = 0.0
+        IOU_n = 0
         for label in range(generator.num_classes()):
             false_positives = np.zeros((0,))
             true_positives  = np.zeros((0,))
@@ -425,6 +427,13 @@ class YOLO(object):
                     overlaps            = compute_overlap(np.expand_dims(d, axis=0), annotations)
                     assigned_annotation = np.argmax(overlaps, axis=1)
                     max_overlap         = overlaps[0, assigned_annotation]
+
+                    if IOU_n == 0:
+                        mean_IOU = max_overlap
+                        IOU_n = 1
+                    else:
+                        IOU_n += 1
+                        mean_IOU = mean_IOU + ((max_overlap - mean_IOU) /IOU_n)
 
                     if max_overlap >= iou_threshold and assigned_annotation not in detected_annotations:
                         false_positives = np.append(false_positives, 0)
@@ -455,6 +464,8 @@ class YOLO(object):
             # compute average precision
             average_precision  = compute_ap(recall, precision)  
             average_precisions[label] = average_precision
+
+        print('Mean IOU: %f' % mean_IOU)
 
         return average_precisions    
 

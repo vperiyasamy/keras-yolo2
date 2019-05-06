@@ -1,0 +1,14 @@
+Epoch 00010: val_loss did not improve from 0.35896
+Epoch 00010: early stopping
+Mean IOU: 0.576030
+car 0.7230
+roof 0.0739
+tree 0.3761
+mAP: 0.3910
+
+
+Mean IOU: 0.372946
+car 0.4689
+roof 0.1281
+tree 0.0387
+mAP: 0.2119

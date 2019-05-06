@@ -1,0 +1,6 @@
+Epoch 00012: val_loss did not improve from 0.38231
+Epoch 00012: early stopping
+car 0.6369
+roof 0.0400
+tree 0.0000
+mAP: 0.2256

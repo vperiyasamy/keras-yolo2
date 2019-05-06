@@ -1,0 +1,13 @@
+Epoch 00009: early stopping
+Mean IOU: 0.499134
+car 0.5800
+roof 0.0541
+tree 0.1964
+mAP: 0.2769
+
+
+Mean IOU: 0.309947
+car 0.2500
+roof 0.1492
+tree 0.0309
+mAP: 0.1434

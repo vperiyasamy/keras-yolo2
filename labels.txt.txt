@@ -1,0 +1,1 @@
+["paved-area", "rocks", "pool", "water", "vegetation", "roof", "wall", "fence", "car", "tree", "obstacle", "grass"]

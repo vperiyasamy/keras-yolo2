@@ -2,14 +2,14 @@
     "model" : {
         "backend":              "Full Yolo",
         "input_size":           256,
-        "anchors":              [0.07,0.10, 0.29,0.39, 0.72,1.15, 1.81,2.07, 2.60,4.55],
+        "anchors":              [0.06,0.06, 0.37,0.44, 0.87,1.21, 1.85,2.20, 2.93,4.36],
         "max_box_per_image":    5,        
         "labels":               ["car", "roof", "tree"]
     },
 
     "train": {
-        "train_image_folder":   "C:\\Users\\viswe\\Desktop\\computer-science\\CS 766\\icg_dataset\\resized_256\\train_images\\",
-        "train_annot_folder":   "C:\\Users\\viswe\\Desktop\\computer-science\\CS 766\\icg_dataset\\resized_256\\train_labels\\",     
+        "train_image_folder":   "C:\\Users\\viswe\\Desktop\\computer-science\\CS 766\\icg_dataset\\resized_256_v2\\train_images\\",
+        "train_annot_folder":   "C:\\Users\\viswe\\Desktop\\computer-science\\CS 766\\icg_dataset\\resized_256_v2\\train_labels\\",     
           
         "train_times":          8,
         "pretrained_weights":   "",
@@ -23,7 +23,7 @@
         "coord_scale":          1.0,
         "class_scale":          1.0,
 
-        "saved_weights_name":   "full_yolo_icg.h5",
+        "saved_weights_name":   "full_yolo_icg_v2.h5",
         "debug":                false
     },
 
